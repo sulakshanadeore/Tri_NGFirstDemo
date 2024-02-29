@@ -1,0 +1,124 @@
+Anuglar Commands:
+
+CLI commands--- Command Line Interface
+Interface to communicate with angular is through commands.
+
+All commands of Angular will start with 'ng'
+
+ng---angular
+
+create a new project: ng new projectname
+run your project: ng serve 
+command to create a component: ng generate component componentname
+			        ng g c componentname
+
+Extensions
+
+Each page is called as a component.
+Product
+
+1) ui----product.component.html
+2) code----product.component.ts
+3) css------product.component.css
+4) test-----product.component.spec.ts
+
+emp
+1) ui----emp.component.html
+2) code----emp.component.ts
+3) css------emp.component.css
+4) test-----emp.component.spec.ts
+
+
+cli-----> angular 2---> manually----generate file and folders for a component----readymade
+
+
+Files description:
+1) component files and folders
+2) src/styles.css----> file which can have global css for the whole project
+3) index.html----base html file of the project
+4) main.ts----file for setting the page for execution
+5) app.module.ts----bootstrap(startup)
+
+<!doctype html>
+<html>
+<head>
+<title></title>
+<viewport>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+Modules-----> namespaces
+nodemodules
+Why nodemodules?
+1)Angular is a javascript framework
+2) To run javascript we need javascript runtime
+3) javascript runtime is node
+so all modules are under nodemodules
+
+
+import only the things u need, which will make the app lightweight.
+
+  bootstrap:modulename     bootstrap: componentname                
+1) main.ts--------------> app.module.ts---->appcomponent----> index.html
+index.html----> selector---> app.component.ts(declared in the decorator of the component)
+
+
+1) generate component--- ng g c customer
+2) app.module.ts----bootstrap--- cutomercomponent
+3) index.html----> put the seletor tag
+4) changes to my customer.component.html---->
+----------------------------------------
+When to use TemplateUrl vs Template?
+If the html page is lengthy, greater than 5 lines, then use template url, but if the html is 
+going to be very short, less then 3 to 5 lines   use Template.
+
+If the html is spanning over 2 line onwards use backtick character to include the hmtl string
+--------------------------------
+
+data binding---
+Types of databinding:
+1) One way data binding
+How to bind the data:
+a) Interpolation
+1)   {{}}---interpolation brackets---- printing----> whenever to pass data from .ts file to .html
+2) {{}} is evaluate expressions
+
+(.ts)         (.html)
+Component to View
+     from .ts to .html ----- one way data binding
+	{{}}---interpolation
+
+
+b) Property Binding
+c) attribute binding
+d) class binding
+e) style binding
+
+
+
+2) Two way data binding
+sending data from .ts to .html and receiving the changed data from .html to .ts again 
+
+a) Event Binding
+b) ngModel=[(ngModel)]="expression"
+
+
+
+
+
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
