@@ -1,0 +1,26 @@
+<div class="container">
+<input  [(ngModel)]="myinputvalue"/>
+<strong>Your input is {{myinputvalue}}</strong>
+
+
+    <form> 
+        <fieldset>   
+       <legend>Addition Form</legend>    
+        <label for="fno">Enter FirstNo</label>
+           <input type="number" name="fno" id="fno" [value]="firstNumber" [(ngModel)]="firstNumber"/>
+          <br/>
+         <label for="sno">Enter SecondNo</label>
+          <input type="number" name="sno" id="sno" [value]="secondNumber" [(ngModel)]="secondNumber" />
+         <br/>
+          <input type="submit" id="AddNos" value="add" on-click="addclicked()"/>
+          <br/>
+          <!-- <button (click)="subtractclicked($event)">subtract</button> -->
+          <input type="button" value="submit clicked" (click)="subtractclicked($event)"/>
+          <br/>
+          <label for="answer">The answer=</label>
+          <input type="number" name="answer" id="answer" [attr.value]="Myanswer"/>
+      </fieldset>
+     </form>
+     <img [attr.src]="imagePath" height="200" width="200"/>
+</div>
+
