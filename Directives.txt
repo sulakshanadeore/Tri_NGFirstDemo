@@ -1,0 +1,98 @@
+Directives:
+Interaction with app is done using directives.
+Directives are typescript functions.
+U will be calling functions/methods:
+1) based on condition
+2) templates
+3) components
+
+			class		 style
+			ngClass          ngStyle
+Attribute Directives----class attribute/style attribute
+Structural Directives-----if,switch,for each etc
+forEach---> *ngFor
+In .ts:
+
+products:Products[]=[
+  {prodid:1,prodname:"Mobiles",prodprice:30000},
+  {prodid:2,prodname:"Tablets",prodprice:30000},
+  {prodid:3,prodname:"Charger",prodprice:1000},
+  {prodid:4,prodname:"FireStick",prodprice:10000},
+  {prodid:5,prodname:"TV",prodprice:50000},
+
+];
+
+In html:
+<table class="table table-condensed">
+    <tr>
+        <td>ProductID</td>
+        <td>ProductName</td>
+        <td>ProductPrice</td>
+    </tr>
+    <tr *ngFor="let p of products">
+        <td>{{p.prodid}}</td>
+        <td>{{p.prodname}}</td>
+        <td>{{p.prodprice}}</td>
+    </tr>
+</table>
+
+
+---------------------------
+
+if------->*ngIf: requires true or false only
+In .ts:
+showButton=true;
+
+In .html
+<button *ngIf="showButton">Click Me!!</button>
+--------------------------------------------------
+Simple Example:
+First way:
+In .ts:
+showMe:boolean;
+in .html:
+
+<p [hidden]="showMe">
+    Show me is unchecked, false condition statement
+</p>
+
+<p [hidden]="!showMe">
+    Show me is checked, true condition statement
+</p> 
+
+Second Way:
+In .ts:
+showMe:boolean;
+in .html:
+ <p *ngIf="showMe; else elseblock1">
+    Show me is checked
+</p>
+<ng-template #elseblock1>
+    Show me is unchecked
+</ng-template> 
+Third way: Using hidden
+In .ts:
+showMe:boolean;
+
+In .html
+ <p [hidden]="showMe">
+    Show me is unchecked, false condition statement
+</p>
+
+<p [hidden]="!showMe">
+    Show me is checked, true condition statement
+</p> 
+Fourth way: we have used ngModel for 2 way data binding, so we can use it in the .ts file method
+In .ts
+showMe:boolean;
+ ShowStatus() {
+  alert(this.showMe);
+}
+In .html:
+<div>
+   <input type="checkbox" [(ngModel)]="showMe"/> ShowStatus
+</div>
+<button (click)="ShowStatus()">Show ME the STatus using TS function ShowStatus</button>
+--------------------------------
+
+Component Based Directive----
