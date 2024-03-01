@@ -1,0 +1,177 @@
+1) Property Binding:One way
+
+Declare property in .ts file:
+firstNumber:number;
+And in the .html:
+ <input type="number" name="fno" id="fno" [value]="firstNumber"/>
+***********************************************
+
+2) Event Binding:
+**First way without parameters: One way binding
+Declare method in .ts file:
+addclicked() {
+ console.log("add clicked");
+}
+
+In .html:
+<input type="submit" id="AddNos" value="add" on-click="addclicked()"/>
+or
+<button (click)="subtractclicked()">subtract</button>
+
+**Second way with parameters: Two way binding
+
+Declare method in .ts file:
+addclicked($event:any) {
+ console.log("add clicked");
+}
+
+In .html:
+<input type="submit" id="AddNos" value="add" on-click="addclicked($event)"/>
+or
+<button (click)="subtractclicked($event)">subtract</button>
+
+
+**************************************************
+3) attribute binding:One way
+In .ts :
+imagePath:string='favicon.ico';
+
+in html:
+     <img [attr.src]="imagePath" height="200" width="200"/>
+
+**************************************************
+4) ngModel Binding: two way
+In .ts file:
+firstNumber:number;
+In .html:
+<input type="number" name="fno" id="fno"  [(ngModel)]="firstNumber"/>
+**************************************************
+5) style binding:
+
+First way:
+In .ts :
+  SizeOfTheFont=10;
+In thml:
+<p [style.font-size.px]="SizeOfTheFont">Hello Style font size</p>
+
+Second way: Multiple style apply using ngStyle attribute
+In .ts:
+  IsBold=true;
+  IsItalic=true;
+  fSize=20;
+  fColor="Magenta";
+  tCenter="Center";
+
+  MultipleInlineStyle() {  
+    let myStyleClass = {  
+      'font-weight': this.IsBold ? 'bold' : 'normal',  
+      'font-style': this.IsItalic ? 'italic' : 'normal',  
+      'font-size.px': this.fSize,  
+      'color': this.fColor,  
+      'text-align': this.tCenter  
+    };  
+    return myStyleClass;  
+  }
+
+In .html:
+<p [ngStyle]="MultipleInlineStyle()">Hello Style font size using Ng class</p>
+
+
+
+
+
+6) class binding:
+
+ In .css:
+.c1Red
+{
+font-size: 20px;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+}
+
+In .ts file:
+
+redClass="c1Red"
+
+In .html:
+<p [class]="redClass">Applying Class binding</p>
+or
+<p [className]="redClass">Applying Class binding</p>
+or
+<p class={{redClass}}>Applying the Class binding again using interpolation</p>
+------------------------------------------------------------
+
+Whether to apply the class or no: condition based:
+
+***For applying a single class: 
+In .css File
+
+.c1Red
+{
+font-size: 20px;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+}
+
+
+In .ts file: 
+ isRedApplied=true;
+
+
+
+In .html file
+<p [class.c1Red]="isRedApplied">This is condition based-- the class applied or not, if condition true then apply else no </p>
+
+***For applying a multiple classes: using ngClass Attribute
+In .css: 
+.red{  
+    color:red;  
+}  
+
+
+.bgYellow{  
+    background-color: yellow;  
+}  
+.italic{  
+    font-style: italic;  
+}
+.bold{
+    font-size: larger;
+}
+.bckgrd
+{
+    background-color: blue;
+} 
+
+In .ts :
+ public classObj = {  
+    red : true,  
+    bgYellow : false,  
+    italic: false,
+    bold:true,
+    bckgrd:true
+  }; 
+
+In .html:
+<p [ngClass]="classObj">This is having multiple classes applied, its done using ngClass</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
